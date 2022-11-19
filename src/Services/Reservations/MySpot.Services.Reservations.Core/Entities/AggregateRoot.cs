@@ -14,7 +14,7 @@ public abstract class AggregateRoot
     {
         if (!_events.Any())
         {
-            Version++;
+            IncrementVersion();
         }
 
         _events.Add(@event);
@@ -29,6 +29,7 @@ public abstract class AggregateRoot
             return;
         }
 
+        _versionIncremented = true;
         Version++;
     }
 }
